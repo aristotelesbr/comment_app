@@ -1,0 +1,57 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  # NewCops: enable
+  # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+  # to ignore them, so only the ones explicitly set in this file are enabled.
+  # DisabledByDefault: true
+  Exclude:
+    - '**/tmp/**/*'
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - '**/node_modules/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'db/schema.rb'
+  Include:
+    - 'app/**/*'
+    - 'spec/**/*'
+
+Layout/SpaceInLambdaLiteral:
+  Description: 'Checks for spaces in lambda literals.'
+  Enabled: false
+  EnforcedStyle: require_no_space
+  SupportedStyles:
+    - require_no_space
+    - require_space
+
+Style/Lambda:
+  Description: 'Use the new lambda literal syntax for single-line blocks.'
+  StyleGuide: '#lambda-multi-line'
+  Enabled: false
+  EnforcedStyle: line_count_dependent
+  SupportedStyles:
+    - line_count_dependent
+    - lambda
+    - literal
+
+Style/LambdaCall:
+  Description: 'Use lambda.call(...) instead of lambda.(...).'
+  StyleGuide: '#proc-call'
+  Enabled: false
+  VersionAdded: '0.13'
+  VersionChanged: '0.14'
+  EnforcedStyle: call
+  SupportedStyles:
+    - call
+    - braces
